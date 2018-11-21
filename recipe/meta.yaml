@@ -15,7 +15,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 1001
   skip: true  # [win]
   rpaths:
     - lib/R/lib/
@@ -74,8 +74,7 @@ about:
   summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests.
     It provides a Shiny application to manage the test cases.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
