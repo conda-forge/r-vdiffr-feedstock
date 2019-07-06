@@ -1,4 +1,4 @@
-{% set version = '0.2.3' %}
+{% set version = '0.3.1' %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -7,25 +7,24 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: vdiffr_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/vdiffr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/vdiffr/vdiffr_{{ version }}.tar.gz
-  sha256: 807a624cee4e1f5238e1ba302062cbc84dcc504789d28613958dd3ead7b65f67
+  sha256: 0af0cd6a284ac2e0b87885c08d6fab44f9082ac9b6470b302326736b0ffc1bd0
 
 build:
   merge_build_host: True  # [win]
-  number: 1001
-  skip: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}        # [not win]
-    - {{ compiler('cxx') }}      # [not win]
-    - {{native}}toolchain        # [win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{ compiler('cxx') }}            # [not win]
+    - {{ compiler('m2w64_cxx') }}      # [win]
     - {{posix}}filesystem        # [win]
     - {{posix}}make
     - {{posix}}sed               # [win]
@@ -33,35 +32,43 @@ requirements:
     - {{posix}}zip               # [win]
   host:
     - r-base
+    - r-bh
     - r-r6
     - r-rcpp
     - r-devtools
+    - r-diffobj
     - r-fontquiver >=0.2.0
-    - r-gdtools >=0.1.2
+    - r-freetypeharfbuzz >=0.2.5
+    - r-gdtools
     - r-glue
+    - r-htmltools
     - r-htmlwidgets >=0.6
     - r-purrr >=0.2.0
     - r-rlang
     - r-shiny
-    - r-svglite >=1.2.0
     - r-testthat >=1.0.0
-    - r-xml2
+    - r-usethis >=1.4.0
+    - r-xml2 >=1.0.0
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
+    - r-bh
     - r-r6
     - r-rcpp
     - r-devtools
+    - r-diffobj
     - r-fontquiver >=0.2.0
-    - r-gdtools >=0.1.2
+    - r-freetypeharfbuzz >=0.2.5
+    - r-gdtools
     - r-glue
+    - r-htmltools
     - r-htmlwidgets >=0.6
     - r-purrr >=0.2.0
     - r-rlang
     - r-shiny
-    - r-svglite >=1.2.0
     - r-testthat >=1.0.0
-    - r-xml2
+    - r-usethis >=1.4.0
+    - r-xml2 >=1.0.0
 
 test:
   commands:
@@ -69,7 +76,7 @@ test:
     - "\"%R%\" -e \"library('vdiffr')\""  # [win]
 
 about:
-  home: https://CRAN.R-project.org/package=vdiffr
+  home: https://github.com/r-lib/vdiffr
   license: GPL-3
   summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests.
     It provides a Shiny application to manage the test cases.
@@ -78,10 +85,28 @@ about:
 
 extra:
   recipe-maintainers:
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
-    - cbrueffer
-    - dbast
     - jenzopr
+    - conda-forge/r
+
+# Package: vdiffr
+# Title: Visual Regression Testing and Graphical Diffing
+# Version: 0.3.1
+# Authors@R: c( person("Lionel", "Henry", , "lionel@rstudio.com", c("cre", "aut")), person("RStudio", role = "cph"), person("Carl", "Sutherland", role = "aut", comment = "jg-imagediff library"), person("Humble Software", role = "cph", comment = "jg-imagediff library"), person("David", "Hong", role = "aut", comment = "TwoFace library"), person(family = "jQuery Foundation", role = "cph", comment = "jQuery library"), person(family = "jQuery contributors", role = c("ctb", "cph"), comment = "jQuery library; authors listed in inst/htmlwidgets/lib/jquery-authors.txt"), person("T Jake", "Luciani", , "jake@apache.org", "aut", comment = "svglite"), person("Matthieu", "Decorde", , "matthieu.decorde@ens-lyon.fr", "aut", comment = "svglite"), person("Vaudor", "Lise", , "lise.vaudor@ens-lyon.fr", "aut", comment = "svglite"), person("Tony", "Plate", role = "ctb", comment = "svglite: Early line dashing code"), person("David", "Gohel", role = "ctb", comment = "svglite: Line dashing code and raster code"), person("Yixuan", "Qiu", role = "ctb", comment = "svglite: Improved styles; polypath implementation"), person("Hakon", "Malmedal", role = "ctb", comment = "svglite: Opacity code") )
+# Encoding: UTF-8
+# Description: An extension to the 'testthat' package that makes it easy to add graphical unit tests. It provides a Shiny application to manage the test cases.
+# License: GPL-3 | file LICENSE
+# LazyData: true
+# ByteCompile: true
+# Depends: R (>= 3.2.0)
+# Imports: devtools, diffobj, fontquiver (>= 0.2.0), freetypeharfbuzz (>= 0.2.5), gdtools, glue, grDevices, htmlwidgets (>= 0.6), htmltools, purrr (>= 0.2.0), rlang, R6, Rcpp, shiny, testthat (>= 1.0.0), usethis (>= 1.4.0), xml2 (>= 1.0.0)
+# Suggests: crayon, ggplot2 (>= 3.2.0), roxygen2, rstudioapi, withr, yaml
+# LinkingTo: freetypeharfbuzz, gdtools, Rcpp, BH
+# RoxygenNote: 6.1.1
+# URL: https://github.com/r-lib/vdiffr
+# BugReports: https://github.com/r-lib/vdiffr/issues
+# NeedsCompilation: yes
+# Packaged: 2019-06-24 16:16:26 UTC; lionel
+# Author: Lionel Henry [cre, aut], RStudio [cph], Carl Sutherland [aut] (jg-imagediff library), Humble Software [cph] (jg-imagediff library), David Hong [aut] (TwoFace library), jQuery Foundation [cph] (jQuery library), jQuery contributors [ctb, cph] (jQuery library; authors listed in inst/htmlwidgets/lib/jquery-authors.txt), T Jake Luciani [aut] (svglite), Matthieu Decorde [aut] (svglite), Vaudor Lise [aut] (svglite), Tony Plate [ctb] (svglite: Early line dashing code), David Gohel [ctb] (svglite: Line dashing code and raster code), Yixuan Qiu [ctb] (svglite: Improved styles; polypath implementation), Hakon Malmedal [ctb] (svglite: Opacity code)
+# Maintainer: Lionel Henry <lionel@rstudio.com>
+# Repository: CRAN
+# Date/Publication: 2019-06-24 16:30:03 UTC
