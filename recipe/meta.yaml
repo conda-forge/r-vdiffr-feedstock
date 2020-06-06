@@ -1,4 +1,4 @@
-{% set version = '0.3.1' %}
+{% set version = "0.3.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/vdiffr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/vdiffr/vdiffr_{{ version }}.tar.gz
-  sha256: 0af0cd6a284ac2e0b87885c08d6fab44f9082ac9b6470b302326736b0ffc1bd0
+  sha256: 96b1a970c6eb05445e6e40cce30d6a1601df50d9691f04b46ff2b53d7f65af94
 
 build:
-  merge_build_host: True  # [win]
-  number: 2
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -78,10 +78,9 @@ test:
 about:
   home: https://github.com/r-lib/vdiffr
   license: GPL-3
-  summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests.
-    It provides a Shiny application to manage the test cases.
+  summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests. It provides a Shiny application to manage the test cases.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
+  license_file: {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 
 extra:
   recipe-maintainers:
