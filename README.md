@@ -5,7 +5,7 @@ Home: https://github.com/r-lib/vdiffr
 
 Package license: GPL-3
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests. It provides a Shiny application to manage the test cases.
 
