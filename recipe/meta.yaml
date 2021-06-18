@@ -1,4 +1,4 @@
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/vdiffr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/vdiffr/vdiffr_{{ version }}.tar.gz
-  sha256: 775bcccc452d50b9aa9475649768bec10f75396f48bbf7b30422bf936d8fb7a0
+  sha256: 7d786abad827eacab9f308e0059cd7ff98176c2e332a213b3bdd624c11975cfe
 
 build:
   merge_build_host: true  # [win]
