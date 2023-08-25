@@ -3,6 +3,7 @@ About r-vdiffr-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-vdiffr-feedstock/blob/main/LICENSE.txt)
 
+
 About r-vdiffr
 --------------
 
@@ -11,6 +12,7 @@ Home: https://github.com/r-lib/vdiffr
 Package license: MIT
 
 Summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests. It provides a Shiny application to manage the test cases.
+
 About r-vdiffr
 --------------
 
