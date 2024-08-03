@@ -1,6 +1,5 @@
 {% set version = "1.0.7" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-vdiffr
@@ -13,16 +12,26 @@ source:
   sha256: ed432e5b67ee8b08e1aab5f7edb89da74e768da68ae6c6e2be483fcc354952d2
 
 build:
-  merge_build_host: true  # [win]
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - r-cpp11                      # [build_platform != target_platform]
+    - r-diffobj                    # [build_platform != target_platform]
+    - r-glue                       # [build_platform != target_platform]
+    - r-htmltools                  # [build_platform != target_platform]
+    - r-lifecycle                  # [build_platform != target_platform]
+    - r-rlang                      # [build_platform != target_platform]
+    - r-testthat                   # [build_platform != target_platform]
+    - r-xml2                       # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
     - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
     - {{ compiler('cxx') }}        # [not win]
     - {{ compiler('m2w64_cxx') }}  # [win]
     - {{ posix }}filesystem        # [win]
@@ -30,7 +39,6 @@ requirements:
     - {{ posix }}sed               # [win]
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - r-cpp11
@@ -39,18 +47,18 @@ requirements:
     - r-htmltools
     - r-lifecycle
     - r-rlang
-    - r-testthat >=3.0.0
+    - r-testthat >=3.0.3
     - r-xml2 >=1.0.0
+    - libpng
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-cpp11
     - r-diffobj
     - r-glue
     - r-htmltools
     - r-lifecycle
     - r-rlang
-    - r-testthat >=3.0.0
+    - r-testthat >=3.0.3
     - r-xml2 >=1.0.0
 
 test:
@@ -59,12 +67,14 @@ test:
     - "\"%R%\" -e \"library('vdiffr')\""  # [win]
 
 about:
-  home: https://github.com/r-lib/vdiffr
+  home: https://vdiffr.r-lib.org/
+  dev_url: https://github.com/r-lib/vdiffr
   license: MIT
   summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests. It provides a Shiny application to manage the test cases.
   license_family: MIT
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 
 extra:
   recipe-maintainers:
