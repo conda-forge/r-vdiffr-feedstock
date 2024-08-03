@@ -7,33 +7,30 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-vdiffr-feedst
 About r-vdiffr
 --------------
 
-Home: https://github.com/r-lib/vdiffr
+Home: https://vdiffr.r-lib.org/
 
 Package license: MIT
 
 Summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests. It provides a Shiny application to manage the test cases.
+
+Development: https://github.com/r-lib/vdiffr
 
 About r-vdiffr
 --------------
 
-Home: https://github.com/r-lib/vdiffr
+Home: https://vdiffr.r-lib.org/
 
 Package license: MIT
 
 Summary: An extension to the 'testthat' package that makes it easy to add graphical unit tests. It provides a Shiny application to manage the test cases.
+
+Development: https://github.com/r-lib/vdiffr
 
 Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/r-vdiffr-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/r-vdiffr-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -100,6 +97,20 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1777&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-vdiffr-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_r_base4.4" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_r_base4.3</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1777&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-vdiffr-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_r_base4.3" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>osx_arm64_r_base4.4</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1777&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-vdiffr-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_r_base4.4" alt="variant">
                 </a>
               </td>
             </tr><tr>
