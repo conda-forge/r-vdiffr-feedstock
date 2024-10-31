@@ -1,4 +1,4 @@
-{% set version = "1.0.7" %}
+{% set version = "1.0.8" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/vdiffr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/vdiffr/vdiffr_{{ version }}.tar.gz
-  sha256: ed432e5b67ee8b08e1aab5f7edb89da74e768da68ae6c6e2be483fcc354952d2
+  sha256: 820c4f4a778f60180a08a46f82a05cbdfa0ff26dd58ce1d2d180b006425aed9b
 
 build:
-  number: 2
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
