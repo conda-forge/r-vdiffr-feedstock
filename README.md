@@ -259,6 +259,3 @@ Feedstock Maintainers
 * [@conda-forge/r](https://github.com/orgs/conda-forge/teams/r/)
 * [@jenzopr](https://github.com/jenzopr/)
 
-
-<!-- dummy commit to enable rerendering -->
-
