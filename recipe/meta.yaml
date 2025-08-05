@@ -54,6 +54,7 @@ requirements:
     - r-testthat >=3.0.3
     - r-xml2 >=1.0.0
     - libpng
+    - zlib
   run:
     - r-base
     - r-cpp11
